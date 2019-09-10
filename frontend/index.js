@@ -11,12 +11,13 @@ function initMap() {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position)
             var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
             infoWindow.setPosition(pos);
-            infoWindow.setContent('your current location');
+            infoWindow.setContent('موقعك الحالي');
             infoWindow.open(map);
             map.setCenter(pos);
         }, function () {
@@ -30,7 +31,7 @@ function initMap() {
     //add a marker
     if(needy.length !== 0){
         for(var i = 0; i<needy.length; i++){
-            new google.maps.Marker({ position: needy[i], map: map });
+            new google.maps.Marker({ position: needy[i], map: map, title: "العنوان: شارع الهرم\nرجل عجوز يحتاج للطعام والعلاج ومأوى\nفاعل الخير: فاطمة" });
         }
     }
     
