@@ -7,7 +7,7 @@ html, body {
 .intro{
     height: 100%;
     width: 100%;
-    background: url(cover2.jpg) no-repeat 50% 50%;
+    background: url(cover.jpg) no-repeat 50% 50%;
     display: table;
     top: 0;
     background-size: cover;
@@ -39,9 +39,9 @@ html, body {
     font-size: 200%;
     font-weight: 400;
     text-decoration: none;
-    color: #E0EFE9;
+    color: lightgrey;
     padding: 5px 20px;
-    border: solid 1px #E0EFE9;
+    border: solid 1px lightgrey;
     border-radius: 9px;
     text-transform: uppercase;
 }
@@ -49,11 +49,10 @@ html, body {
     margin-right: 50px;
 }
 .btn:hover {
-    color: black;
-    border: solid black 3px;
-    transition: all 0.5s;
-    transform: scale(1.5) perspective(1px);
-    background-color: #E0EFE9;
+    color: lightgrey;
+    border: solid lightgrey 5px;
+    transition: all .2s ease-in-out;
+    transform: scale(1.5);
 }
 /*--- Media Queries --*/
 @media screen and (max-width: 900px) {

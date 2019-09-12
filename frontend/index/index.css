@@ -10,7 +10,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Aref Ruqaa', serif;
-    color: white:
+    color: #433D3D;
 }
 body{
     display: flex;
@@ -18,16 +18,16 @@ body{
     min-height: 100vh;
 }
 #map {
-    height: 73%;
+    height: 90%;
 }
 .main__footer p{
     text-align: center;
-    color: white;
+    color: #433D3D;
 }
 .main__header, .main__footer{
-    background: #3EADCF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, rgba(73,165,191,1) , rgba(117,189,209,1), rgba(147,206,222,1)  );  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right,rgba(147,206,222,1), rgba(117,189,209,1),  rgba(73,165,191,1) ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: rgb(220,220,220);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgb(220,220,220) ,rgb(241, 237, 237));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,rgb(220,220,220) ,rgb(241, 237, 237)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 .main__header{
@@ -38,21 +38,18 @@ body{
 }
 .main__header__a{
     text-decoration: none;
-    color: white;
-}
-.main__header__h1 a{
-    font-size: 150%;
+    color: #433D3D;
 }
 .main__header__h1 span{
     font-weight: bold;
+    margin-bottom: 10px;
 }
 .main__header__ul{
     list-style: none;
 }
 .main__header__li{
     display: inline-block;
-    margin: 0 10px;
-    padding: 35px 0;
+    margin: 15px 10px;
     font-weight: 600;
 }
 .main__footer {
