@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=ArefRuqaa:100');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+.intro{
+    height: 100%;
+    width: 100%;
+    background: url(logo.jpg) no-repeat 50% 50%;
+    display: table;
+    top: 0;
+    background-size: cover;
+}
+.intro .inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    max-width: none;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+.content {
+    font-family: 'Aref Ruqaa', serif;
+    width: 600px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 20%;
+}
+.content h1 {
+    font-size: 800%;
+    font-weight: 100;
+    color: #E0EFE9;
+    line-height: 70%;
+}
+.content span {
+    font-weight: bold;
+}
+.btn {
+    font-size: 200%;
+    font-weight: 400;
+    text-decoration: none;
+    color: #E0EFE9;
+    padding: 10px 20px;
+    border: solid 1px #E0EFE9;
+    border-radius: 9px;
+    text-transform: uppercase;
+}
+.content a+a {
+    margin-right: 50px;
+}
+.btn:hover {
+    color: black;
+    border: solid black 3px;
+    transition: all 0.5s;
+    transform: scale(1.5) perspective(1px);
+    background-color: #E0EFE9;
+}
+/*--- Media Queries --*/
+@media screen and (max-width: 900px) {
+    .content {
+        padding-bottom: 25%;
+    }
+    .content h1 {
+        font-size: 450%;
+    }
+    .btn {
+        padding: 7px 15px;
+        font-size: 110%;
+    }
+    .content a+a {
+    margin-right: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .content {
+        width: 300px;
+        padding-bottom: 30%;
+    }
+    .content h1 {
+        font-size: 300%;
+    }
+    .btn {
+        padding: 7px 15px;
+        font-size: 110%;
+    }
+}
