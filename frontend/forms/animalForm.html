@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="../index/index.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="form.css">
+    </head>
+    <body>
+        <header class="main__header">
+            <h1 class="main__header__h1"><a href="#" class="main__header__a">صدقة<span>.</span>نت</a></h1>
+            <nav class="main__header__nav">
+                <ul class="main__header__ul">
+                    <li class="main__header__li"><a href="#" class="main__header__a">الحيوانات المتضررة</a></li>
+                    <li class="main__header__li"><a href="../index/human/index.html" class="main__header__a">رعاية الإنسان</a></li>
+                    <li class="main__header__li"><a href="../index/animal/index.html" class="main__header__a">رعاية الحيوان</a></li>
+                    <li class="main__header__li"><a href="#" class="main__header__a">كيفية الإستخدام</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+            <form action="/url" method="POST" name="human-case">
+                <label>نوع الحيوان: <input type="text" name="name" required/></label>
+                <label>
+                    المحافظة
+                    <select name="city" required>
+                        <option value="giza">الجيزة</option>
+                        <option value="cairo">القاهرة</option>
+                        <option value="october">السادس من أكتوبر</option>
+                    </select>
+                </label>
+                <label>
+                    العنوان كامل
+                    <textarea name="adress" required></textarea>
+                </label>
+                <label>علامة مميزة<input type="text" name="unique-sign" required/></label>
+                <label>
+                    وصف الحالة
+                    <textarea name="description" required></textarea>
+                </label>
+                <label class="image">صورة الحالة*<input type="file" name="image" class="image"/></label>
+                <label>رقم تليفون*<input type="tel" name="mobile-number"/></label>
+                <label><input type="hidden" name="lat" hidden/></label>
+                <label><input type="hidden" name="lng" /></label>
+                <label><input type="hidden" name="user-id" /></label>
+                <button type="submit" class="btn">حفظ</button>
+            </form>
+        </div>
+
+        <footer class="main__footer">
+            <p>جميع حقوق الطبع محفوظة © 2019</p>
+        </footer>
+        <script src="addForm.js"></script>
+    </body>
+</html>

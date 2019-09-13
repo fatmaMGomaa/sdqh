@@ -9,7 +9,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Aref Ruqaa', serif;
+    /* font-family: 'Aref Ruqaa', serif; */
     color: #433D3D;
 }
 body{
@@ -24,17 +24,15 @@ body{
     text-align: center;
     color: #433D3D;
 }
-.main__header, .main__footer{
-    background: rgb(220,220,220);  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, rgb(220,220,220) ,rgb(241, 237, 237));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right,rgb(220,220,220) ,rgb(241, 237, 237)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
 .main__header{
     padding: 0 50px;
     margin: 0;
     display: flex;
     justify-content: space-between;
+    color: #433D3D;
+    background: rgb(220,220,220);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, rgba(170,201,255,0.8) ,rgb(255,255,255));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom,rgba(170,201,255, 0.8) ,rgb(255,255,255)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .main__header__a{
     text-decoration: none;
@@ -53,5 +51,10 @@ body{
     font-weight: 600;
 }
 .main__footer {
+    background: rgb(220,220,220);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, rgba(170,201,255,0.8) ,rgb(255,255,255));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top,rgba(170,201,255, 0.8) ,rgb(255,255,255)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin-top: auto;
 }
+
+/* my color dark grey for write 433D3D,middle blue rgba(170,201,255, 0.8) ,white rgb(255,255,255) */

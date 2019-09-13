@@ -1,0 +1,53 @@
+html, body {
+    height: auto;
+}
+.container {
+    width: 50%;
+    height: 80%;
+    padding: 30px 0;
+}
+.container, .btn{
+    margin: 0 auto;
+}
+form, label, input, textarea {
+    width: 100%;
+}
+label {
+    margin: 20px;
+}
+label, input, textarea, .btn {
+    display: block;
+}
+input{
+    min-height: 30px;
+}
+textarea{
+    min-height: 70px;
+}
+input, textarea {
+    margin: 10px;
+}
+input, textarea, .btn{
+    border-radius:10px;
+    border: solid 1px #433D3D; 
+}
+.image {
+    border: none;
+    border-radius: 0;
+    display: inline-block;
+    width: auto;
+}
+.btn {
+    font-size: 150%;
+    padding: 10px 20px;
+    border: solid 3px  #2196f3; 
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 50px;
+    color: white;
+    background-color: #2196f3;
+}
+.btn:hover {
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+    transition-delay: 0.2s;
+}
