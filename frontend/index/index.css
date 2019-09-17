@@ -4,7 +4,6 @@ html{
 *{
     box-sizing: inherit;
 }
-/* Optional: Makes the sample page fill the window. */
 html, body {
     height: 100%;
     margin: 0;
@@ -24,15 +23,19 @@ body{
     text-align: center;
     color: #433D3D;
 }
+/* .main__header__h1 {
+    padding: 0;
+    margin: 3px 0 0;
+} */
 .main__header{
     padding: 0 50px;
-    margin: 0;
+    margin: 0 ;
     display: flex;
     justify-content: space-between;
     color: #433D3D;
     background: rgb(220,220,220);  /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom, rgba(170,201,255,0.8) ,rgb(255,255,255));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom,rgba(170,201,255, 0.8) ,rgb(255,255,255)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom,rgba(170,201,255, 0.8) ,rgb(255,255,255)); /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .main__header__a{
     text-decoration: none;
@@ -47,7 +50,7 @@ body{
 }
 .main__header__li{
     display: inline-block;
-    margin: 15px 10px;
+    margin: 17px 10px 0;
     font-weight: 600;
 }
 .main__footer {
@@ -57,4 +60,4 @@ body{
     margin-top: auto;
 }
 
-/* my color dark grey for write 433D3D,middle blue rgba(170,201,255, 0.8) ,white rgb(255,255,255) */
+/* my color dark grey for write #433D3D,middle blue rgba(170,201,255, 0.8) ,white rgb(255,255,255), button #2196f3 */
