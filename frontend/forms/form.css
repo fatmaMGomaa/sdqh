@@ -4,13 +4,14 @@ html, body {
 .container {
     width: 50%;
     height: 80%;
-    padding: 30px 0;
+    padding: 30px 0 30px 20px;
+    border-radius: 10px;
 }
 .container, .btn{
     margin: 0 auto;
 }
 form, label, input, textarea {
-    width: 100%;
+    width: 98%;
 }
 label {
     margin: 20px;
@@ -26,10 +27,11 @@ textarea{
 }
 input, textarea {
     margin: 10px;
+    outline: none;
 }
 input, textarea, .btn{
     border-radius:10px;
-    border: solid 1px #433D3D; 
+    border: solid 1px rgba(9, 64, 96, 1); 
 }
 .image {
     border: none;
@@ -39,15 +41,14 @@ input, textarea, .btn{
 }
 .btn {
     font-size: 150%;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border: solid 3px  #2196f3; 
     overflow: hidden;
     transition: 0.5s;
-    margin-top: 50px;
     color: white;
     background-color: #2196f3;
 }
 .btn:hover {
-    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 30px #2196f3;
     transition-delay: 0.2s;
 }

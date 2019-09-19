@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="../../index/index.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../form.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./signup.css">
+    </head>
+    <body>
+        <header class="main__header">
+            <h1 class="main__header__h1"><a href="../../landingPage/landing.html" class="main__header__a"></a><img
+                    src="../../images/logo3.png" /></a></h1>
+            <nav class="main__header__nav">
+                <ul class="main__header__ul">
+                    <li class="main__header__li"><a href="#" class="main__header__a">المحتاجين</a></li>
+                    <li class="main__header__li"><a href="../../index/human/index.html" class="main__header__a">رعاية الإنسان</a></li>
+                    <li class="main__header__li"><a href="../../index/animal/index.html" class="main__header__a">رعاية الحيوان</a></li>
+                    <li class="main__header__li"><a href="#" class="main__header__a">كيفية الإستخدام</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <h2>إنشاء حساب جديد</h2>
+            <form action="/url" method="POST" name="login">
+                <div class="outer">
+                    <div class="inner">
+                        <label>الاسم الأول: <input type="text" name="firstName" required /></label>
+                    </div>
+                    <div class="inner">
+                        <label>اسم العائلة: <input type="text" name="lasttName" required /></label>
+                    </div>
+                </div>
+                <div class="outer"><label>الإيميل: <input type="email" name="email" required /></label></div>
+                <div class="outer"><label>الرقم السري: <input type="password" name="password" required /></label></div>
+                <div class="outer">
+                    <div class="inner">
+                        <label>
+                            الجنس:
+                            <select name="gender" required>
+                                <option value="male">ذكر</option>
+                                <option value="female">أنثى</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="inner"><label>تاريخ الميلاد: <input type="date" name="birthdate" required /></label></div>
+                </div>
+                <div class="outer">
+                    <label>صورة*<input type="file" name="image" class="image" /></label>
+                </div>
+                <button type="submit" class="btn">إنشاء حساب جديد</button>
+            </form>
+        </div>
+        <footer class="main__footer">
+            <p>جميع حقوق الطبع محفوظة © 2019</p>
+        </footer>
+        <script src="addForm.js"></script>
+    </body>
+</html>

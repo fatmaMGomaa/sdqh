@@ -10,6 +10,16 @@ const sequelize = require('./util/database');
 const app = express();
 
 const User = require('./models/user');
+const Human = require('./models/human');
+const Animal = require('./models/animal');
+const Chat = require('./models/chat');
+const Message = require('./models/message');
+
+const userRoutes = require('./routes/user');
+const authRoutes = require('./routes/auth');
+
+app.use(bodyParser.json());
+app.use(require('body-parser').text());
 
 // const fileStorage = multer.diskStorage({
 //     destination: (req, file, cb) => {
@@ -31,32 +41,30 @@ const User = require('./models/user');
 //         cb(null, false);
 //     }
 // };
-
-// app.use(bodyParser.json());
-// app.use(require('body-parser').text());
 // app.use(
 //     multer({ storage: fileStorage, fileFilter: fileFilter }).single('file')
 // );
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/images', express.static(path.join(__dirname, 'images')));
 
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-//     res.setHeader(
-//         'Access-Control-Allow-Methods',
-//         'OPTIONS, GET, POST, PUT, PATCH, DELETE'
-//     );
-//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//     next();
-// });
-
-// app.use((error, req, res, next) => {
-//     console.log(error);
-//     const status = error.statusCode || 500;
-//     const message = error.message;
-//     const data = error.data;
-//     res.status(status).json({ message: message, data: data });
-// });
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+        'Access-Control-Allow-Methods',
+        'OPTIONS, GET, POST, PUT, PATCH, DELETE'
+    );
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+app.use(authRoutes);
+// app.use(userRoutes);
+app.use((error, req, res, next) => {
+    console.log(error);
+    const status = error.statusCode || 500;
+    const message = error.message;
+    const data = error.data;
+    res.status(status).json({ message: message, data: data });
+});
 
 
 //relations btw user and humanCases
@@ -65,9 +73,6 @@ Human.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 //relation btw user and AnimalCase
 User.hasMany(Animal);
 Animal.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
-//relation btw user and chat conversions
-User.belongsToMany(Chat, { through: UserChat });
-Chat.belongsToMany(User, { through: UserChat });
 //relations btw user and chat messages
 User.hasMany(Message);
 Message.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
@@ -76,7 +81,7 @@ Chat.hasMany(Message);
 Message.belongsTo(Chat, { constraints: true, onDelete: 'CASCADE' });
 
 sequelize
-    .sync({ force: true })
+    .sync({ force: false })
     .then(result => {
         console.log(result);
         app.listen(8080);

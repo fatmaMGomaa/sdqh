@@ -5,17 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Page Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="../index/index.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="form.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../../index/index.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../form.css">
     </head>
     <body>
         <header class="main__header">
-            <h1 class="main__header__h1"><a href="../landingPage/landing.html" class="main__header__a">صدقة<span>.</span>نت</a></h1>
+            <h1 class="main__header__h1"><a href="../../landingPage/landing.html" class="main__header__a"></a><img
+                    src="../../images/logo3.png" /></a></h1>
             <nav class="main__header__nav">
                 <ul class="main__header__ul">
-                    <li class="main__header__li"><a href="#" class="main__header__a">الحيوانات المتضررة</a></li>
-                    <li class="main__header__li"><a href="../index/human/index.html" class="main__header__a">رعاية الإنسان</a></li>
-                    <li class="main__header__li"><a href="../index/animal/index.html" class="main__header__a">رعاية الحيوان</a></li>
+                    <li class="main__header__li"><a href="#" class="main__header__a">المحتاجين</a></li>
+                    <li class="main__header__li"><a href="../../index/human/index.html" class="main__header__a">رعاية الإنسان</a></li>
+                    <li class="main__header__li"><a href="../../index/animal/index.html" class="main__header__a">رعاية الحيوان</a></li>
                     <li class="main__header__li"><a href="#" class="main__header__a">كيفية الإستخدام</a></li>
                 </ul>
             </nav>
@@ -23,7 +24,7 @@
 
         <div class="container">
             <form action="/url" method="POST" name="human-case">
-                <label>نوع الحيوان: <input type="text" name="name" required/></label>
+                <label>اسم الحالة: <input type="text" name="name" required/></label>
                 <label>
                     المحافظة
                     <select name="city" required>
@@ -34,15 +35,15 @@
                 </label>
                 <label>
                     العنوان كامل
-                    <textarea name="adress" required></textarea>
+                    <textarea rows="5" name="adress" required></textarea>
                 </label>
                 <label>علامة مميزة<input type="text" name="unique-sign" required/></label>
                 <label>
                     وصف الحالة
-                    <textarea name="description" required></textarea>
+                    <textarea rows="10" name="description" required></textarea>
                 </label>
+                <label>رقم تليفون*<input type="tel" name="mobile-number" /></label>
                 <label class="image">صورة الحالة*<input type="file" name="image" class="image"/></label>
-                <label>رقم تليفون*<input type="tel" name="mobile-number"/></label>
                 <label><input type="hidden" name="lat" hidden/></label>
                 <label><input type="hidden" name="lng" /></label>
                 <label><input type="hidden" name="user-id" /></label>

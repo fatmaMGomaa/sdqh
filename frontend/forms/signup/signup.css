@@ -1,0 +1,24 @@
+.btn {
+    font-size: 100%;
+    padding: 10px;
+}
+.outer{
+    width: 100%;
+}
+.inner {
+    width: 49%;
+}
+.triple{
+    width: 32%;
+}
+.inner, .triple {
+    display: inline-block;
+}
+input{
+    border: none;
+    border-radius:0; 
+    border-bottom: 1px solid rgba(9, 64, 96, 1);
+}
+h2 {
+    margin: 0 auto;
+}
