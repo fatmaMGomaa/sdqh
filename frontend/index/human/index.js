@@ -16,6 +16,7 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            saveToLocalStorage("location", pos);
             infoWindow.setPosition(pos);
             infoWindow.setContent('موقعك الحالي');
             infoWindow.open(map);
@@ -34,7 +35,6 @@ function initMap() {
             new google.maps.Marker({ position: needy[i], map: map, title: "العنوان: شارع الهرم\nرجل عجوز يحتاج للطعام والعلاج ومأوى\nفاعل الخير: فاطمة" });
         }
     }
-    
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

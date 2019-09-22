@@ -57,7 +57,8 @@ app.use((req, res, next) => {
     next();
 });
 app.use(authRoutes);
-// app.use(userRoutes);
+app.use(userRoutes);
+
 app.use((error, req, res, next) => {
     console.log(error);
     const status = error.statusCode || 500;

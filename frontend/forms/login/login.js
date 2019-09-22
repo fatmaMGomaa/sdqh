@@ -14,8 +14,8 @@ form.addEventListener("submit", (e) => {
         .then(function (response) {
             data = response.data
             localStorage.clear();
-            localStorage.setItem("token", JSON.stringify(data.token));
-            localStorage.setItem("user", JSON.stringify(data.user));
+            saveToLocalStorage("token", data.token)
+            saveToLocalStorage("user", data.user)
             window.location.replace(baseURL+"/landingPage/landing.html");
         })
         .catch(function (error) {

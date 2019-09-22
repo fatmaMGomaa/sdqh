@@ -20,7 +20,7 @@ const Human = sequelize.define(
             defaultValue: 'cairo',
             allowNull: false
         },
-        adress: {
+        address: {
             type: Sequelize.TEXT,
             allowNull: false
         },

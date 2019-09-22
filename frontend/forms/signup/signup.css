@@ -20,5 +20,6 @@ input{
     border-bottom: 1px solid rgba(9, 64, 96, 1);
 }
 h2 {
-    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 20px;
 }

@@ -23,11 +23,11 @@
         </header>
 
         <div class="container">
-            <form action="/url" method="POST" name="human-case">
-                <label>اسم الحالة: <input type="text" name="name" required/></label>
+            <form action="/url" method="POST" name="human" id="human">
+                <label>اسم الحالة: <input type="text" name="name" id="name" required/></label>
                 <label>
                     المحافظة
-                    <select name="city" required>
+                    <select name="city" id="city" required>
                         <option value="giza">الجيزة</option>
                         <option value="cairo">القاهرة</option>
                         <option value="october">السادس من أكتوبر</option>
@@ -35,18 +35,15 @@
                 </label>
                 <label>
                     العنوان كامل
-                    <textarea rows="5" name="adress" required></textarea>
+                    <textarea rows="5" name="adress" id="address" required></textarea>
                 </label>
-                <label>علامة مميزة<input type="text" name="unique-sign" required/></label>
+                <label>علامة مميزة<input type="text" name="unique-sign" id="unique-sign" required/></label>
                 <label>
                     وصف الحالة
-                    <textarea rows="10" name="description" required></textarea>
+                    <textarea rows="10" name="description" id="description" required></textarea>
                 </label>
-                <label>رقم تليفون*<input type="tel" name="mobile-number" /></label>
-                <label class="image">صورة الحالة*<input type="file" name="image" class="image"/></label>
-                <label><input type="hidden" name="lat" hidden/></label>
-                <label><input type="hidden" name="lng" /></label>
-                <label><input type="hidden" name="user-id" /></label>
+                <label>رقم تليفون*<input type="tel" name="mobile-number" id="mobile-number"/></label>
+                <label class="image">صورة الحالة*<input type="file" name="image" id="image" class="image"/></label>
                 <button type="submit" class="btn">حفظ</button>
             </form>
         </div>
@@ -54,6 +51,7 @@
         <footer class="main__footer">
             <p>جميع حقوق الطبع محفوظة © 2019</p>
         </footer>
-        <script src="addForm.js"></script>
+        <script src="../../util/localStorage.js"></script>
+        <script src="humanForm.js"></script>
     </body>
 </html>
