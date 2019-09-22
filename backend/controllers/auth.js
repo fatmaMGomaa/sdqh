@@ -21,6 +21,17 @@ exports.postSignup = (req, res, next) => {
     const password = req.body.password;
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
+    const gender = req.body.gender;
+    const birthDate = req.body.birthDate;
+    const image = req.file
+
+    let imagePath;
+    if (!image) {
+        imagePath = 'images/defaultFood.png'
+    } else {
+        imagePath = image.path
+        console.log(imagePath)
+    }
     User.findOne({
         where: {
             email: email
@@ -29,7 +40,7 @@ exports.postSignup = (req, res, next) => {
         .then(user => {
             if (user) {
                 return res.status(401).json({
-                    msg: `Email: ${email}, is already taken.`
+                    message: `Email: ${email}, is already taken.`
                 });
             }
         })
@@ -44,7 +55,10 @@ exports.postSignup = (req, res, next) => {
                 email: email,
                 firstName: firstName,
                 lastName: lastName,
-                password: hashPw
+                password: hashPw,
+                birthDate,
+                gender,
+                image: imagePath
             });
         })
         .then(result => {
@@ -56,7 +70,7 @@ exports.postSignup = (req, res, next) => {
                 TOKENSECRET,
                 { expiresIn: "1h" }
             );
-            res.status(201).json({ token: token, user: result, msg: "user has been created"});
+            res.status(201).json({ token: token, user: result, message: "user has been created"});
         })
         .catch(err => {
             console.log(err);
@@ -75,14 +89,14 @@ exports.postLogin = (req, res, next) => {
     })
         .then(user => {
             if (!user) {
-                return res.status(401).json({ msg: "Account not found." });
+                return res.status(401).json({ message: "Account not found." });
             }
             loadedUser = user;
             return bcrypt.compare(password, user.password);
         })
         .then(isEqual => {
             if (!isEqual) {
-                return res.status(401).json({ msg: "Password is incorrect." });
+                return res.status(401).json({ message: "Password is incorrect." });
             }
             const token = jwt.sign(
                 {
@@ -92,7 +106,7 @@ exports.postLogin = (req, res, next) => {
                 TOKENSECRET,
                 { expiresIn: "1h" }
             );
-            res.status(200).json({ token: token, user: loadedUser, msg: "logged in successfully" });
+            res.status(200).json({ token: token, user: loadedUser, message: "logged in successfully" });
         })
         .catch(err => {
             console.log(err);

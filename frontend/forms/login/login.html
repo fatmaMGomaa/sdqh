@@ -23,15 +23,16 @@
             </nav>
         </header>
         <div class="container">
-            <form action="/url" method="POST" name="login">
-                <label>الإيميل: <input type="email" name="email" required/></label>
-                <label>كلمة المرور: <input type="password" name="password" required/></label>
+            <form action="/url" method="POST" name="login" id="login">
+                <label>الإيميل: <input type="email" name="email" id="email" required/></label>
+                <label>كلمة المرور: <input type="password" name="password" id="password" required/></label>
                 <button type="submit" class="btn">دخول</button>
             </form>
         </div>
         <footer class="main__footer">
             <p>جميع حقوق الطبع محفوظة © 2019</p>
         </footer>
-        <script src="addForm.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="login.js"></script>
     </body>
 </html>

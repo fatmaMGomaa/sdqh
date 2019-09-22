@@ -21,31 +21,31 @@ const authRoutes = require('./routes/auth');
 app.use(bodyParser.json());
 app.use(require('body-parser').text());
 
-// const fileStorage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, 'images');
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, Date.now() + file.originalname);
-//     }
-// });
+const fileStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'images');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now()+ file.originalname);
+    }
+});
 
-// const fileFilter = (req, file, cb) => {
-//     if (
-//         file.mimetype === 'image/png' ||
-//         file.mimetype === 'image/jpg' ||
-//         file.mimetype === 'image/jpeg'
-//     ) {
-//         cb(null, true);
-//     } else {
-//         cb(null, false);
-//     }
-// };
-// app.use(
-//     multer({ storage: fileStorage, fileFilter: fileFilter }).single('file')
-// );
+const fileFilter = (req, file, cb) => {
+    if (
+        file.mimetype === 'image/png' ||
+        file.mimetype === 'image/jpg' ||
+        file.mimetype === 'image/jpeg'
+    ) {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+};
+app.use(
+    multer({ storage: fileStorage, fileFilter: fileFilter }).single('file')
+);
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

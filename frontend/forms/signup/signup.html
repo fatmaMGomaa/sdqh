@@ -24,31 +24,31 @@
         </header>
         <div class="container">
             <h2>إنشاء حساب جديد</h2>
-            <form action="/url" method="POST" name="login">
+            <form method="POST" name="signup" id="signup">
                 <div class="outer">
                     <div class="inner">
-                        <label>الاسم الأول: <input type="text" name="firstName" required /></label>
+                        <label>الاسم الأول: <input type="text" name="firstName" id="firstName" required /></label>
                     </div>
                     <div class="inner">
-                        <label>اسم العائلة: <input type="text" name="lasttName" required /></label>
+                        <label>اسم العائلة: <input type="text" name="lastName" id="lastName" required /></label>
                     </div>
                 </div>
-                <div class="outer"><label>الإيميل: <input type="email" name="email" required /></label></div>
-                <div class="outer"><label>الرقم السري: <input type="password" name="password" required /></label></div>
+                <div class="outer"><label>الإيميل: <input type="email" name="email" id="email" required /></label></div>
+                <div class="outer"><label>كلمة المرور: <input type="password" name="password" id="password" required /></label></div>
                 <div class="outer">
                     <div class="inner">
                         <label>
                             الجنس:
-                            <select name="gender" required>
+                            <select name="gender" id="gender" required>
                                 <option value="male">ذكر</option>
                                 <option value="female">أنثى</option>
                             </select>
                         </label>
                     </div>
-                    <div class="inner"><label>تاريخ الميلاد: <input type="date" name="birthdate" required /></label></div>
+                    <div class="inner"><label>تاريخ الميلاد: <input type="date" name="birthdate" id="birthdate" required /></label></div>
                 </div>
                 <div class="outer">
-                    <label>صورة*<input type="file" name="image" class="image" /></label>
+                    <label>صورة*<input type="file" name="image" id="image" class="image" /></label>
                 </div>
                 <button type="submit" class="btn">إنشاء حساب جديد</button>
             </form>
@@ -56,6 +56,7 @@
         <footer class="main__footer">
             <p>جميع حقوق الطبع محفوظة © 2019</p>
         </footer>
-        <script src="addForm.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="signup.js"></script>
     </body>
 </html>
