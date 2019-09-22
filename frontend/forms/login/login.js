@@ -20,5 +20,6 @@ form.addEventListener("submit", (e) => {
         })
         .catch(function (error) {
             console.log(error);
+            alert(error.response.data.message)
         });
 })

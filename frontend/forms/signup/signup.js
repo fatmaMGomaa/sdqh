@@ -42,7 +42,7 @@ form.addEventListener("submit",(e)=>{
             window.location.replace(baseURL + "/landingPage/landing.html");
         })
         .catch(function (error) {
-            console.log(error.message);
             console.log(error);
+            alert(error.response.data.message)
         });
 })

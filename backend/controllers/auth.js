@@ -8,9 +8,6 @@ const { TOKENSECRET } = process.env;
 exports.postSignup = (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        // return res.status(422).json({
-        //   msg: `Validation failed ${errors.array()}`
-        // });
         const error = new Error('Validation failed.');
         error.statusCode = 422;
         error.data = errors.array();
@@ -39,43 +36,41 @@ exports.postSignup = (req, res, next) => {
     })
         .then(user => {
             if (user) {
-                return res.status(401).json({
-                    message: `Email: ${email}, is already taken.`
-                });
+                const error = new Error(`Email: ${email} is already taken.`);
+                error.statusCode = 401;
+                throw error;
             }
+            bcrypt
+                .hash(password, 10)
+                .then(hashPw => {
+                    return User.create({
+                        email,
+                        firstName,
+                        lastName,
+                        password: hashPw,
+                        birthDate,
+                        gender,
+                        image: imagePath
+                    });
+                })
+                .then(result => {
+                    const token = jwt.sign(
+                        {
+                            email: email,
+                            userId: result.id
+                        },
+                        TOKENSECRET,
+                        { expiresIn: "1h" }
+                    );
+                    res.status(201).json({ token: token, user: result, message: "user has been created" });
+                })
+                .catch(error => {
+                    next(error);
+                });
         })
-        .catch(err => {
-            console.log(err);
+        .catch(error => {
+            next(error);
         });
-
-    bcrypt
-        .hash(password, 10)
-        .then(hashPw => {
-            return User.create({
-                email: email,
-                firstName: firstName,
-                lastName: lastName,
-                password: hashPw,
-                birthDate,
-                gender,
-                image: imagePath
-            });
-        })
-        .then(result => {
-            const token = jwt.sign(
-                {
-                    email: email,
-                    userId: result.id
-                },
-                TOKENSECRET,
-                { expiresIn: "1h" }
-            );
-            res.status(201).json({ token: token, user: result, message: "user has been created"});
-        })
-        .catch(err => {
-            console.log(err);
-        });
-
 };
 
 exports.postLogin = (req, res, next) => {
@@ -89,14 +84,18 @@ exports.postLogin = (req, res, next) => {
     })
         .then(user => {
             if (!user) {
-                return res.status(401).json({ message: "Account not found." });
+                const error = new Error(`Account with this email ${email} not found.`);
+                error.statusCode = 401;
+                throw error;
             }
             loadedUser = user;
             return bcrypt.compare(password, user.password);
         })
         .then(isEqual => {
             if (!isEqual) {
-                return res.status(401).json({ message: "Password is incorrect." });
+                const error = new Error("Password is incorrect.");
+                error.statusCode = 401;
+                throw error;
             }
             const token = jwt.sign(
                 {
@@ -108,7 +107,7 @@ exports.postLogin = (req, res, next) => {
             );
             res.status(200).json({ token: token, user: loadedUser, message: "logged in successfully" });
         })
-        .catch(err => {
-            console.log(err);
+        .catch(error => {
+            next(error);
         });
 };
