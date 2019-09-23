@@ -101,7 +101,7 @@ exports.getSingleCase = (req, res, next) => {
                     }]
             })
             .then(result => {
-                return res.status(200).json({ cases: result, message: "a human case was fetched successfully" });
+                return res.status(200).json({ case: result, message: "a human case was fetched successfully" });
             })
             .catch(error => {
                 next(error);
@@ -119,7 +119,7 @@ exports.getSingleCase = (req, res, next) => {
                     }]
             })
             .then(result => {
-                return res.status(200).json({ cases: result, message: "an animal case was fetched successfully" });
+                return res.status(200).json({ case: result, message: "an animal case was fetched successfully" });
             })
             .catch(error => {
                 next(error);

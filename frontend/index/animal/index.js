@@ -1,6 +1,23 @@
-var needy = [{ lat: 30.0480, lng: 31.1997 }, { lat: 30.0596, lng: 31.1930 }, { lat: 30.0544, lng: 31.1854 }];
+const token = getLocalStorageItem("token");
+const baseURL = "file:///home/fgomaa/Desktop/sdqh/frontend";
+let cases = [];
 var map, infoWindow;
-function initMap() {
+
+axios
+    .get("http://localhost:8080/allCases?caseType=animal", {
+        headers: {
+            Authorization: `bearer ${token}`
+        }
+    })
+    .then(response => {
+        cases = response.data.cases;
+        console.log(cases);
+        mapWithMarkers();
+    })
+    .catch(error => {
+        console.log(error);
+    });
+const mapWithMarkers = function initMap() {
     //render the google map
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
@@ -30,9 +47,16 @@ function initMap() {
     }
 
     //add a marker
-    if(needy.length !== 0){
-        for(var i = 0; i<needy.length; i++){
-            new google.maps.Marker({ position: needy[i], map: map, title: "العنوان: شارع الهرم\nرجل عجوز يحتاج للطعام والعلاج ومأوى\nفاعل الخير: فاطمة" });
+    if (cases.length !== 0) {
+        let currentLocation, content, marker;
+        for (var i = 0; i < cases.length; i++) {
+            currentLocation = { lat: +cases[i]["lat"], lng: +cases[i]["lng"] };
+            console.log(currentLocation)
+            content = `${cases[i]["species"]}\n${cases[i]["description"]}\n${cases[i]["address"]}`
+            marker = new google.maps.Marker({ position: currentLocation, map: map, title: content });
+            marker.addListener('click', function () {
+                window.location.replace(baseURL + "/landingPage/landing.html");
+            });
         }
     }
     
