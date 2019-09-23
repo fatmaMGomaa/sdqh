@@ -1,7 +1,7 @@
 // const express = require("express");
 // const { validationResult } = require('express-validator/check');
 
-// const User = require('../models/user');
+const User = require('../models/user');
 const Human = require('../models/human');
 const Animal = require('../models/animal');
 
@@ -77,6 +77,49 @@ exports.getAllCases = (req, res, next) => {
             })
             .then(result => {
                 return res.status(200).json({ cases: result, message: "all animal cases were fetched successfully" });
+            })
+            .catch(error => {
+                next(error);
+            });
+    }
+};
+
+exports.getSingleCase = (req, res, next) => {
+    const caseId = req.params.caseId;
+    const caseType = req.query.caseType;
+
+    if (caseType === "human") {
+        Human
+            .findOne({
+                where: {
+                    id: caseId
+                },
+                include: [
+                    {
+                        model: User,
+                        attributes: ['firstName', 'lastName']
+                    }]
+            })
+            .then(result => {
+                return res.status(200).json({ cases: result, message: "a human case was fetched successfully" });
+            })
+            .catch(error => {
+                next(error);
+            });
+    } else if (caseType === "animal") {
+        Animal
+            .findOne({
+                where: {
+                    id: caseId
+                },
+                include: [
+                    {
+                        model: User,
+                        attributes: ['id', 'firstName', 'lastName']
+                    }]
+            })
+            .then(result => {
+                return res.status(200).json({ cases: result, message: "an animal case was fetched successfully" });
             })
             .catch(error => {
                 next(error);
