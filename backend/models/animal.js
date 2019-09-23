@@ -20,7 +20,7 @@ const Animal = sequelize.define(
             defaultValue: 'cairo',
             allowNull: false
         },
-        adress: {
+        address: {
             type: Sequelize.TEXT,
             allowNull: false
         },
@@ -34,7 +34,7 @@ const Animal = sequelize.define(
         },
         image: {
             type: Sequelize.STRING,
-            defaultValue: "images/defaultUser.jpg"
+            defaultValue: "images/deafaultAnimal.png"
         },
         phone: Sequelize.STRING,
         lat: {

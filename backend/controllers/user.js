@@ -27,11 +27,12 @@ exports.postCase = (req, res, next) => {
     const image = req.file
 
     let imagePath;
-    if (!image) {
-        imagePath = 'images/defaultFood.png'
+    if (!image && caseType === "human") {
+        imagePath = 'images/defaultUser.jpg'
+    } else if (!image && caseType === "animal") {
+        imagePath = 'images/deafaultAnimal.png'
     } else {
         imagePath = image.path
-        console.log(imagePath)
     }
 
     if(caseType === "human"){
@@ -45,7 +46,7 @@ exports.postCase = (req, res, next) => {
             });
     } else if (caseType === "animal"){
         Animal
-            .create({ name, area, address, uniqueSign, description, phone, lat, lng, userId, image: imagePath })
+            .create({ species: name, area, address, uniqueSign, description, phone, lat, lng, userId, image: imagePath })
             .then(result => {
                 return res.status(201).json({ case: result, message: "Animal case was created successfully" });
             })

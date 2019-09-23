@@ -16,6 +16,7 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            saveToLocalStorage("location", pos);
             infoWindow.setPosition(pos);
             infoWindow.setContent('موقعك الحالي');
             infoWindow.open(map);

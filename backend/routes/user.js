@@ -8,7 +8,7 @@ const isAuthenticated = require('../middleware/is-auth');
 
 const router = express.Router();
 
-router.post('/addCase', userControllers.postCase)
+router.post('/addCase', isAuthenticated, userControllers.postCase)
 
 
 module.exports = router;

@@ -24,7 +24,7 @@ exports.postSignup = (req, res, next) => {
 
     let imagePath;
     if (!image) {
-        imagePath = 'images/defaultFood.png'
+        imagePath = 'images/defaultUser.jpg'
     } else {
         imagePath = image.path
         console.log(imagePath)

@@ -9,11 +9,11 @@ if (!user || !token) {
 }
 if (!userLocation) {
     alert("you have to turn on yor GPS to know your current location")
-    window.location.replace(baseURL + "/index/human/index.html");
+    window.location.replace(baseURL + "/index/animal/index.html");
 }
 
 let data, image;
-const form = document.getElementById('human')
+const form = document.getElementById('animal')
 const imageFile = document.getElementById('image')
 imageFile.addEventListener("change", (e) => {
     image = e.target.files[0]
@@ -46,7 +46,7 @@ form.addEventListener("submit", (e) => {
     }
 
     axios
-        .post("http://localhost:8080/addCase?caseType=human", data, {
+        .post("http://localhost:8080/addCase?caseType=animal", data, {
             headers: {
                 accept: "application/json",
                 "Accept-Language": "en-US,en;q=0.8",
@@ -56,8 +56,8 @@ form.addEventListener("submit", (e) => {
         })
         .then(function (response) {
             data = response.data;
-            window.location.replace(baseURL + "/index/human/index.html");
-            alert("case was added successfully")
+            window.location.replace(baseURL + "/index/animal/index.html");
+            alert("Animal case was added successfully")
         })
         .catch(function (error) {
             console.log(error);
