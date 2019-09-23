@@ -8,7 +8,7 @@ if (!user || !token) {
     window.location.replace(baseURL + "/forms/login/login.html");
 }
 if (!userLocation) {
-    alert("you have to turn on yor GPS to know your current location")
+    alert("you have to turn on your GPS to know your current location")
     window.location.replace(baseURL + "/index/human/index.html");
 }
 

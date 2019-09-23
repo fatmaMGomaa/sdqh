@@ -1,7 +1,7 @@
-const express = require("express");
-const { validationResult } = require('express-validator/check');
+// const express = require("express");
+// const { validationResult } = require('express-validator/check');
 
-const User = require('../models/user');
+// const User = require('../models/user');
 const Human = require('../models/human');
 const Animal = require('../models/animal');
 
@@ -49,6 +49,34 @@ exports.postCase = (req, res, next) => {
             .create({ species: name, area, address, uniqueSign, description, phone, lat, lng, userId, image: imagePath })
             .then(result => {
                 return res.status(201).json({ case: result, message: "Animal case was created successfully" });
+            })
+            .catch(error => {
+                next(error);
+            });
+    }
+};
+
+exports.getAllCases = (req, res, next) => {
+    const caseType = req.query.caseType;
+
+    if (caseType === "human") {
+        Human
+            .findAll({
+                order: [['createdAt', 'DESC']]
+            })
+            .then(result => {
+                return res.status(200).json({ cases: result, message: "all human cases were fetched successfully" });
+            })
+            .catch(error => {
+                next(error);
+            });
+    } else if (caseType === "animal") {
+        Animal
+            .findAll({
+                order: [['createdAt', 'DESC']]
+            })
+            .then(result => {
+                return res.status(200).json({ cases: result, message: "all animal cases were fetched successfully" });
             })
             .catch(error => {
                 next(error);
