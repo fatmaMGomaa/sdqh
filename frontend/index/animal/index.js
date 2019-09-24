@@ -54,8 +54,12 @@ const mapWithMarkers = function initMap() {
             console.log(currentLocation)
             content = `${cases[i]["species"]}\n${cases[i]["description"]}\n${cases[i]["address"]}`
             marker = new google.maps.Marker({ position: currentLocation, map: map, title: content });
+            marker.set("id", 1);
             marker.addListener('click', function () {
-                window.location.replace(baseURL + "/landingPage/landing.html");
+                const caseId = marker.get("id");
+                saveToLocalStorage("caseId", caseId)
+                saveToLocalStorage("caseType", "animal")
+                window.location.replace(baseURL + `/cases/animal/singleCase/singleCase.html`);
             });
         }
     }

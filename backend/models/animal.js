@@ -16,8 +16,8 @@ const Animal = sequelize.define(
             allowNull: false
         },
         area: {
-            type: Sequelize.ENUM('giza', 'cairo', "october"),
-            defaultValue: 'cairo',
+            type: Sequelize.ENUM('الجيزة', 'القاهرة', "أكتوبر"),
+            defaultValue: 'القاهرة',
             allowNull: false
         },
         address: {

@@ -87,7 +87,6 @@ exports.getAllCases = (req, res, next) => {
 exports.getSingleCase = (req, res, next) => {
     const caseId = req.params.caseId;
     const caseType = req.query.caseType;
-
     if (caseType === "human") {
         Human
             .findOne({

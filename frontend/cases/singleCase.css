@@ -1,0 +1,26 @@
+.container {
+    width: 90%;
+    min-height: 60%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 5% auto;
+    background-color: rgba(170,201,255, 0.3)
+}
+.right {
+    width: 30%;
+}
+.right img{
+    width: 95%;
+    height: 95%;
+}
+.left {
+    width: 70%;
+    padding: 30px 0;
+}
+ul {
+    list-style: none;
+}
+.date {
+    margin-top: -20px;
+}
