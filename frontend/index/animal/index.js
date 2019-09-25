@@ -48,19 +48,18 @@ const mapWithMarkers = function initMap() {
 
     //add a marker
     if (cases.length !== 0) {
-        let currentLocation, content, marker;
+        let currentLocation, content, marker, caseId;
         for (var i = 0; i < cases.length; i++) {
             currentLocation = { lat: +cases[i]["lat"], lng: +cases[i]["lng"] };
-            console.log(currentLocation)
             content = `${cases[i]["species"]}\n${cases[i]["description"]}\n${cases[i]["address"]}`
             marker = new google.maps.Marker({ position: currentLocation, map: map, title: content });
-            marker.set("id", 1);
+            marker.set("id", +cases[i]["id"]);
             marker.addListener('click', function () {
-                const caseId = marker.get("id");
+                caseId = this.get("id");
                 saveToLocalStorage("caseId", caseId)
                 saveToLocalStorage("caseType", "animal")
-                window.location.replace(baseURL + `/cases/animal/singleCase/singleCase.html`);
-            });
+                window.location.replace(baseURL + `/cases/human/singleCase/singleCase.html`);
+            }); 
         }
     }
     
