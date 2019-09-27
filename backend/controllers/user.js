@@ -1,19 +1,13 @@
-// const express = require("express");
-// const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator/check');
 
 const User = require('../models/user');
 const Human = require('../models/human');
 const Animal = require('../models/animal');
+const Comment = require('../models/comment');
+const Sequelize = require('sequelize');
+
 
 exports.postCase = (req, res, next) => {
-    // const errors = validationResult(req);
-    // if (!errors.isEmpty()) {
-    //     const error = new Error('Validation failed.');
-    //     error.statusCode = 422;
-    //     error.data = errors.array();
-    //     throw error;
-    // }
-
     const caseType = req.query.caseType;
     const name = req.body.name;
     const area = req.body.city;
@@ -97,7 +91,18 @@ exports.getSingleCase = (req, res, next) => {
                     {
                         model: User,
                         attributes: ['firstName', 'lastName']
-                    }]
+                    },{
+                        model: Comment,
+                        attributes: ['content', 'createdAt'],
+                        include: [
+                            {
+                                model: User,
+                                attributes: ['id', 'firstName', 'image'],
+                                as: 'user'
+                            }
+                        ]
+                    }],
+                order: [['comments', 'createdAt', 'DESC']]
             })
             .then(result => {
                 return res.status(200).json({ case: result, message: "a human case was fetched successfully" });
@@ -115,10 +120,47 @@ exports.getSingleCase = (req, res, next) => {
                     {
                         model: User,
                         attributes: ['id', 'firstName', 'lastName']
-                    }]
+                    }, {
+                        model: Comment,
+                        attributes: ['content', 'createdAt'],
+                        include: [
+                            {
+                                model: User,
+                                attributes: ['id', 'firstName', 'image'],
+                                as: 'user'
+                            }
+                        ]
+                    }],
+                order: [['comments', 'createdAt', 'DESC']]
             })
             .then(result => {
                 return res.status(200).json({ case: result, message: "an animal case was fetched successfully" });
+            })
+            .catch(error => {
+                next(error);
+            });
+    }
+};
+
+exports.postComment = (req, res, next) => {
+    const comment = req.body.comment;
+    const caseId = req.body.caseId;
+    const caseType = req.body.caseType;
+    const userId = req.body.userId;
+    if(caseType === "human"){
+        Comment
+            .create({ content: comment, humanId: caseId, animalId: null, userId })
+            .then(result => {
+                return res.status(201).json({ comment: result, message: "comment was created successfully" });
+            })
+            .catch(error => {
+                next(error);
+            });
+    }else if(caseType === "animal"){
+        Comment
+            .create({ content: comment, humanId: null, animalId: caseId, userId: userId })
+            .then(result => {
+                return res.status(201).json({ comment: result, message: "comment was created successfully" });
             })
             .catch(error => {
                 next(error);

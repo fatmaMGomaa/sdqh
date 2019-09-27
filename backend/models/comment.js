@@ -2,8 +2,8 @@ const Sequelize = require("sequelize");
 
 const sequelize = require("../util/database");
 
-const Message = sequelize.define(
-    "message",
+const Comment = sequelize.define(
+    "comment",
     {
         id: {
             type: Sequelize.INTEGER,
@@ -14,10 +14,6 @@ const Message = sequelize.define(
         content: {
             type: Sequelize.STRING,
             allowNull: false
-        },
-        to: {
-            type: Sequelize.INTEGER,
-            allowNull: false
         }
     },
     {
@@ -25,4 +21,4 @@ const Message = sequelize.define(
     }
 );
 
-module.exports = Message;
+module.exports = Comment;

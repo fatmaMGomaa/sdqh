@@ -8,9 +8,10 @@ const isAuthenticated = require('../middleware/is-auth');
 
 const router = express.Router();
 
-router.post('/addCase', isAuthenticated, userControllers.postCase)
+router.post('/addCase', userControllers.postCase)
 router.get('/allCases', userControllers.getAllCases)
 router.get('/singleCase/:caseId',  userControllers.getSingleCase)
+router.post('/addComment', userControllers.postComment)
 
 
 module.exports = router;

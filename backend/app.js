@@ -12,8 +12,7 @@ const app = express();
 const User = require('./models/user');
 const Human = require('./models/human');
 const Animal = require('./models/animal');
-const Chat = require('./models/chat');
-const Message = require('./models/message');
+const Comment = require('./models/comment');
 
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
@@ -74,12 +73,15 @@ Human.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 //relation btw user and AnimalCase
 User.hasMany(Animal);
 Animal.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
-//relations btw user and chat messages
-User.hasMany(Message);
-Message.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
-//relations btw user and chat messages
-Chat.hasMany(Message);
-Message.belongsTo(Chat, { constraints: true, onDelete: 'CASCADE' });
+//relations btw user and Comment
+User.hasMany(Comment);
+Comment.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
+//relations btw Human and Comment
+Human.hasMany(Comment);
+Comment.belongsTo(Human, { constraints: true, onDelete: 'CASCADE' });
+//relations btw Animal and Comment
+Animal.hasMany(Comment);
+Comment.belongsTo(Animal, { constraints: true, onDelete: 'CASCADE' });
 
 sequelize
     .sync({ force: false })

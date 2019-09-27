@@ -12,7 +12,7 @@ axios
         cases = response.data.cases;
         console.log(cases);
         if(cases.length === 0){
-            container.innerHTML = "لا يوجد حالات لعرضها"
+            container.innerHTML = "<h2>لا يوجد حالات لعرضها</h2>"
         }else {
             let imagePath;
             for (var i = 0; i < cases.length; i++) {
@@ -37,15 +37,15 @@ axios
             </div>`;
                 container.appendChild(div);
             }
-        }
-        const caseButton = document.querySelector('button')
+            const caseButton = document.querySelector('button')
 
-        caseButton.addEventListener('click', (e) => {
-            caseId = e.target.id
-            console.log(caseId)
-            saveToLocalStorage("caseId", caseId)
-            saveToLocalStorage("caseType", "human")
-        })
+            caseButton.addEventListener('click', (e) => {
+                caseId = e.target.id
+                console.log(caseId)
+                saveToLocalStorage("caseId", caseId)
+                saveToLocalStorage("caseType", "human")
+            })
+        }
     })
     .catch(error => {
         console.log(error);

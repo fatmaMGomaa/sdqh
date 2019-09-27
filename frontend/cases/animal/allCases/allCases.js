@@ -37,15 +37,15 @@ axios
                     </div>`;
                 container.appendChild(div);
             }
-        }
-        const caseButton = document.querySelector('button')
+            const caseButton = document.querySelector('button')
 
-        caseButton.addEventListener('click', (e) => {
-            caseId = e.target.id
-            console.log(caseId)
-            saveToLocalStorage("caseId", caseId)
-            saveToLocalStorage("caseType", "animal")
-        })
+            caseButton.addEventListener('click', (e) => {
+                caseId = e.target.id
+                console.log(caseId)
+                saveToLocalStorage("caseId", caseId)
+                saveToLocalStorage("caseType", "animal")
+            })
+        }
     })
     .catch(error => {
         console.log(error);

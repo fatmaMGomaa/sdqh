@@ -1,11 +1,15 @@
 .container {
     width: 90%;
-    min-height: 60%;
     padding: 10px;
+    margin: 100px auto 0;
+    background-color: rgba(170,201,255, 0.1)
+}
+.content{
     display: flex;
     justify-content: center;
-    margin: 5% auto;
-    background-color: rgba(170,201,255, 0.3)
+}
+.content, .single-comment{
+    border-bottom: 1px solid rgba(9, 64, 96, 1);
 }
 .right {
     width: 30%;
@@ -23,4 +27,31 @@ ul {
 }
 .date {
     margin-top: -20px;
+}
+#comment-form, .single-comment{
+    width: 90%;
+    margin: 0 auto;
+}
+#comment-form button{
+    float: left;
+}
+#comment-content{
+    width: 100%;
+    max-width: 100%;
+}
+.single-comment img{
+    width: 50px;
+    height: auto;
+}
+.single-comment div{
+    display: inline-block;
+    margin: 10px;
+}
+.single-comment p+p{
+    margin-top: -10px;
+    font-size: 85%;
+    color: rgna(0,0,0,0.8)
+}
+.single-comment span{
+    color: #d57a5b;
 }
