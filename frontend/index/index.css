@@ -30,6 +30,9 @@ body{
     text-decoration: none;
     color: rgba(9, 64, 96, 1);
 }
+.main__header__a:hover,.main__footer i:hover{
+    color: #2196f3;
+}
 .main__header__ul, .main__footer ul{
     list-style: none;
 }
@@ -60,11 +63,14 @@ body{
 }
 /* my color dark blue for write rgba(9, 64, 96, 1),middle blue rgba(170,201,255, 0.8) ,white rgb(255,255,255), button #2196f3 */
 @media screen and (max-width: 900px) {
-    
+    .main__header__li{
+        padding: 0 3px;
+        font-size: 85%;
+    }
 }
 @media screen and (max-width: 767px) {
     .main__header{
-        padding: 0 20px;
+        padding: 0 10px;
         justify-content: center;
         flex-wrap: wrap;
     }
