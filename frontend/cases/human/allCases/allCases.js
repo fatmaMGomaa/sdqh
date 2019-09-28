@@ -32,7 +32,7 @@ axios
                     <p>${ cases[i]["description"]}</p>
                 </div>
                 <div class="bottom">
-                    <button type="button" id=${ cases[i]["id"]}>المزيد</button>
+                    <button type="button" id=${cases[i]["id"]}>المزيد</button>
                 </div>
             </div>`;
                 container.appendChild(div);
@@ -43,7 +43,8 @@ axios
                 caseId = e.target.id
                 console.log(caseId)
                 saveToLocalStorage("caseId", caseId)
-                saveToLocalStorage("caseType", "human")
+                saveToLocalStorage("caseType", "human");
+                window.location.replace(baseURL + `/cases/human/singleCase/singleCase.html`);
             })
         }
     })

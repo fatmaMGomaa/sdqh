@@ -4,7 +4,7 @@ const { TOKENSECRET } = process.env;
 module.exports = (req,res,next) => {
     const authHeader = req.get('Authorization')
     if(!authHeader){
-        const error = new Error('not authanticated')
+        const error = new Error('not authanticated.... please log in first')
         error.statusCode = 401
         throw error
     }
@@ -17,7 +17,7 @@ module.exports = (req,res,next) => {
         throw err
     }
     if(!decodedToken){
-        const error = new Error('not authanticated')
+        const error = new Error('not authanticated.... please log in first')
         error.statusCode = 401
         throw error
     }

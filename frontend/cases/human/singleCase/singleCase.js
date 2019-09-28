@@ -58,25 +58,30 @@ axios
                 </div>
                 <div id="other-comments"></div>
             </div>`
-            const commentForm = document.querySelector('#comment-form');
-            commentForm.addEventListener("submit", (e) => {
-                e.preventDefault();
-                const comment = document.getElementById('comment-content').value
+            if(!token){
+                alert("please log in first");
+            }else {
+                const commentForm = document.querySelector('#comment-form');
+                commentForm.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const comment = document.getElementById('comment-content').value
 
-                axios.post("http://localhost:8080/addComment", {
-                    comment,
-                    userId: user.id,
-                    caseType,
-                    caseId
-                })
-                    .then(function (response) {
-                        location.reload();
+                    axios.post("http://localhost:8080/addComment", {
+                        comment,
+                        userId: user.id,
+                        caseType,
+                        caseId
                     })
-                    .catch(function (error) {
-                        console.log(error);
-                        alert(error.response.data.message)
-                    });
-            })
+                        .then(function (response) {
+                            location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                            alert(error.response.data.message)
+                        });
+                })
+            }
+            
             if (comments.length > 0) {
                 const caseComments = document.querySelector('#other-comments')
                 let commentImage;
@@ -101,6 +106,6 @@ axios
     })
     .catch(error => {
         console.log(error);
-        alert("something went wrong")
+        alert(error.response.message)
     });
 

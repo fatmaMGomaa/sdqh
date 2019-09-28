@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
-
     <head>
         <title>Simple Map</title>
         <meta name="viewport" content="initial-scale=1.0">
         <meta charset="utf-8">
-        <!-- <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa&display=swap" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+            integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" href="../index.css">
     </head>
 
@@ -15,20 +15,28 @@
                     src="../../images/logo3.png" /></a></h1>
             <nav class="main__header__nav">
                 <ul class="main__header__ul">
-                    <li class="main__header__li"><a href="../../forms/human/humanForm.html" class="main__header__a"> مساعدة جديدة</a> </li>
-                    <li class="main__header__li"><a href="../../cases/human/allCases/allCases.html" class="main__header__a">المحتاجين</a></li>
+                    <li class="main__header__li"><a href="../../forms/human/humanForm.html" class="main__header__a"> <i class="fas fa-plus"></i> مساعدة جديدة</a> </li>
+                    <li class="main__header__li"><a href="../../cases/human/allCases/allCases.html" class="main__header__a">الحالات</a></li>
                     <li class="main__header__li"><a href="../animal/index.html" class="main__header__a">رعاية الحيوان</a></li>
-                    <li class="main__header__li"><a href="#" class="main__header__a">كيفية الإستخدام</a></li>
+                    <li class="main__header__li"><a href="../../forms/login/login.html" class="main__header__a" id="login"> <i class="fas fa-sign-in-alt"></i></a></li>
                 </ul>
             </nav>
         </header>
         <div id="map"></div>
-        <!-- <footer class="main__footer">
+        <footer class="main__footer">
             <p>جميع حقوق الطبع محفوظة © 2019</p>
-        </footer> -->
-            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjyEwlbHj12LbwETQB8ulD_s799nOxL3E&callback=initMap" async defer></script>
-            <script src="../../util/localStorage.js"></script>
-            <script src="index.js"></script>
-        </body>
-    </html>
+            <nav>
+                <ul>
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fab fa-youtube-square"></i></a></li>
+                </ul>
+            </nav>
+        </footer>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjyEwlbHj12LbwETQB8ulD_s799nOxL3E&callback=initMap" async defer></script>
+        <script src="../../util/localStorage.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

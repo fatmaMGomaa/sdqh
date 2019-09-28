@@ -4,32 +4,27 @@ html, body {
     height: 100%;
     width: 100%;
 }
-.main__header{
-    z-index: 1;
-}
 .main__header a{
     color: white;
 }
 .intro{
-    height: 100%;
-    width: 100%;
     background: url(cover.jpg) no-repeat 50% 50%;
-    display: table;
     top: 0;
     background-size: cover;
 }
-.intro .inner {
-    display: table-cell;
-    vertical-align: middle;
+.intro .inner, .intro{
+    height: 100%;
     width: 100%;
+}
+.intro .inner {
     max-width: none;
-    background-color: rgba(0, 0, 0, 0.5)
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .content {
-    width: 600px;
+    width: 500px;
     text-align: center;
     margin: 0 auto;
-    padding-bottom: 20%;
+    padding-bottom: 16%;
     font-family: 'Aref Ruqaa', serif;
 }
 .content h1 {
@@ -37,6 +32,7 @@ html, body {
     font-weight: 100;
     color: white;
     line-height: 70%;
+    margin: 80px 0;
 }
 .content span {
     font-weight: bold;
@@ -47,12 +43,18 @@ html, body {
     text-decoration: none;
     color: white;
     padding: 5px 20px;
-    border: solid 1px lightgrey;
+    border: solid 2px lightgrey;
     border-radius: 9px;
     text-transform: uppercase;
 }
 .content a+a {
     margin-right: 50px;
+}
+.main__header__li + .main__header__li {
+    border-right: 2px solid white;
+}
+.fas .fa-sign-in-alt, .fas .fa-user-plus{
+    color: white;
 }
 .btn:hover {
     color: lightgrey;
@@ -65,29 +67,33 @@ html, body {
 /*--- Media Queries --*/
 @media screen and (max-width: 900px) {
     .content {
-        padding-bottom: 25%;
+       margin-top: 39%;
     }
     .content h1 {
-        font-size: 450%;
+        font-size: 550%;
+        margin: 50px 0;
     }
     .btn {
         padding: 7px 15px;
-        font-size: 110%;
+        font-size: 150%;
     }
     .content a+a {
     margin-right: 20px;
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .content {
         width: 300px;
-        padding-bottom: 30%;
+        margin-top: 50%;
     }
     .content h1 {
-        font-size: 300%;
+        font-size: 400%;
     }
     .btn {
         padding: 7px 15px;
         font-size: 110%;
+    }
+    .main__header{
+        justify-content: space-between;
     }
 }
