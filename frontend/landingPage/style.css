@@ -96,4 +96,8 @@ html, body {
     .main__header{
         justify-content: space-between;
     }
+    .main__header__h1 {
+        margin: 5px 0 0;
+        width: auto;
+    }
 }

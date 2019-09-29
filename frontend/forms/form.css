@@ -37,6 +37,7 @@ input, textarea, .btn{
     border-radius: 0;
     display: inline-block;
     width: auto;
+    margin-top: 0;
 }
 .btn {
     font-size: 150%;
@@ -48,17 +49,31 @@ input, textarea, .btn{
     background-color: #2196f3;
 }
 .btn:hover {
-    box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 30px #2196f3;
+    box-shadow: 0 0 5px #2196f3, 0 0 10px #2196f3, 0 0 20px #2196f3;
     transition-delay: 0.2s;
 }
 @media screen and (max-width: 900px) {
     .container {
         width: 80%;
     }
+    #human .btn, #animal .btn{
+        margin: 0 48%;
+    }
 }
 @media screen and (max-width: 767px) {
     .container {
         width: 100%;
         padding: 0 0 0 30px;
+    }
+    #human .btn, #animal .btn{
+        padding: 4px 5px;
+        font-size: 130%;
+        margin: 0 48% 10px 0;
+    }
+    #human, #animal{
+        font-size: 90%;
+    }
+    .image input{
+        margin-top: 10px;
     }
 }

@@ -28,6 +28,8 @@ h2 {
 @media screen and (max-width: 767px) {
     h2 {
         font-size: 100%;
+        margin: 3% 12% 0 0;
+        padding-bottom: 0;
     }
     .inner {
         display: block;
@@ -36,10 +38,9 @@ h2 {
     .btn {
         font-size: 90%;
         padding: 6px;
-        margin-bottom: 15px;
+        margin: 0 36% 15px 0;
     }
-    .image {
-        
-        
+    .main__header__h1 {
+        margin-top: 5px;
     }
 }

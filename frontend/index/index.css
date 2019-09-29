@@ -75,16 +75,19 @@ body{
         flex-wrap: wrap;
     }
     .main__header__li{
-        padding: 0 3px;
         font-size: 70%;
     }
     .main__footer p{
         font-size: 80%;
     }
     .main__header img{
-        width:100px;
+        width:120px;
     }
     .main__header__ul{
         padding-right: 20px;
+    }
+    .main__header__h1 {
+        margin: 5px 30px 0;
+        width: auto;
     }
 }
