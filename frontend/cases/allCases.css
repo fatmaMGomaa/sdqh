@@ -7,7 +7,6 @@ body{
 }
 .content {
     width: 100%;
-    height: 300px;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -15,22 +14,79 @@ body{
     background-color: rgba(170,201,255, 0.3)
 }
 .right {
-    width: 30%;
+    width: 15%;
 }
 .right img{
-    width: 95%;
-    height: 95%;
+    width: 150px;
+    height: 150px;
 }
 .left {
-    width: 70%;
-    padding: 30px 0;
+    width: 85%;
+    height: auto;
+    position: relative;
 }
-ul {
+.left h2 {
+    margin-top: 5px;
+}
+.left ul {
     list-style: none;
 }
 .date {
-    margin-top: -20px;
+    margin-top: -15px;
+}
+.bottom {
+    display: inline-block;
 }
 .bottom button {
-    float: left;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 7px 15px;
+    background-color: #2196f3;
+    border: none;
+    border-radius: 5px;
+    color: white; 
+}
+.bottom button:hover {
+    background-color: rgba(9, 64, 96, 0.8);
+}
+@media screen and (max-width: 900px) {
+    .left {
+        font-size: 80%;
+        width: 80%;
+    }
+    .right{
+        width: 20%;
+    }
+    .right img{
+        width: 120px;
+        height: 120px;
+    }
+    .left .date {
+        margin-top: -12px;
+    }
+    .bottom button{
+        padding: 5px 10px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .content {
+        width: 80%;
+        flex-wrap: wrap;
+    }
+    .right, .left{
+        width: 100%;
+    }
+    .right img{
+        width: 95%;
+        height: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+    .left h2{
+        font-size: 120%;
+    }
+    .left .middle {
+        margin-bottom: 20px;
+    }
 }

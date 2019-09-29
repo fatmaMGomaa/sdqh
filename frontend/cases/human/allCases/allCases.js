@@ -20,21 +20,21 @@ axios
                 var div = document.createElement("div");
                 div.className = "content";
                 div.innerHTML =
-                    `<div class="right">
-                <img src=${imagePath} alt=${cases[i]["name"]} />
-            </div>
-            <div class="left">
-                <div class="top">
-                    <h2>${ cases[i]["name"]}</h2>
-                    <p class="date">تم إضافته: <time>${ cases[i]["createdAt"].split('T')[0]}</time>، ${cases[i]["area"]}</p>
+                `<div class="right">
+                    <img src=${imagePath} alt=${cases[i]["name"]} />
                 </div>
-                <div class="middle">
-                    <p>${ cases[i]["description"]}</p>
-                </div>
-                <div class="bottom">
-                    <button type="button" id=${cases[i]["id"]}>المزيد</button>
-                </div>
-            </div>`;
+                <div class="left">
+                    <div class="top">
+                        <h2>${ cases[i]["name"]}</h2>
+                        <p class="date"><i class="far fa-clock"></i> <time>${ cases[i]["createdAt"].split('T')[0]}</time>، <i class="fas fa-map-marker-alt"></i> ${cases[i]["area"]}</p>
+                    </div>
+                    <div class="middle">
+                        <p>${ cases[i]["description"].substring(0, 120)}...</p>
+                    </div>
+                    <div class="bottom">
+                        <button type="button" id=${cases[i]["id"]}>المزيد</button>
+                    </div>
+                 </div>`;
                 container.appendChild(div);
             }
             const caseButton = document.querySelector('button')

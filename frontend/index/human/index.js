@@ -51,7 +51,7 @@ const mapWithMarkers = function initMap() {
         let currentLocation, content, marker, caseId;
         for (var i = 0; i < cases.length; i++) {
             currentLocation = { lat: +cases[i]["lat"], lng: +cases[i]["lng"] };
-            content = `${cases[i]["name"]}\n${cases[i]["description"]}\n${cases[i]["address"]}\n`
+            content = `${cases[i]["name"].substring(0, 100)}\n${cases[i]["description"].substring(0, 100)}...\n${cases[i]["address"].substring(0, 100)}\n`
             marker = new google.maps.Marker({ position: currentLocation, map: map, title: content });
             marker.set("id", +cases[i]["id"]);
             marker.addListener('click', function () {
