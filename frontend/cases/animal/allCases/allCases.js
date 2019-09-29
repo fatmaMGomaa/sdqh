@@ -37,14 +37,15 @@ axios
                     </div>`;
                 container.appendChild(div);
             }
-            const caseButton = document.querySelector('button')
-
-            caseButton.addEventListener('click', (e) => {
-                caseId = e.target.id
-                console.log(caseId)
-                saveToLocalStorage("caseId", caseId)
-                saveToLocalStorage("caseType", "animal")
-                window.location.replace(baseURL + `/cases/human/singleCase/singleCase.html`);
+            const casesButton = document.querySelectorAll('button')
+            casesButton.forEach((caseButton) => {
+                caseButton.addEventListener('click', (e) => {
+                    caseId = e.target.id
+                    console.log(caseId)
+                    saveToLocalStorage("caseId", caseId)
+                    saveToLocalStorage("caseType", "animal")
+                    window.location.replace(baseURL + `/cases/animal/singleCase/singleCase.html`);
+                })
             })
         }
     })

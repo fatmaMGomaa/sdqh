@@ -1,7 +1,10 @@
+body{
+    height: auto;
+}
 .container {
     width: 90%;
     padding: 10px;
-    margin: 100px auto 0;
+    margin: 10px auto;
     background-color: rgba(170,201,255, 0.1)
 }
 .content{
@@ -11,29 +14,45 @@
 .content, .single-comment{
     border-bottom: 1px solid rgba(9, 64, 96, 1);
 }
-.right {
+.content .right {
     width: 30%;
 }
-.right img{
+.content .right img{
     width: 95%;
     height: 95%;
 }
-.left {
+.content .left {
     width: 70%;
-    padding: 30px 0;
 }
-ul {
+.content .left ul {
     list-style: none;
+    padding: 0;
 }
-.date {
+.content .left i{
+    margin: 0  0 5px 15px;
+    font-size: 120%;
+}
+.content .date {
     margin-top: -20px;
 }
 #comment-form, .single-comment{
     width: 90%;
     margin: 0 auto;
 }
+#comment-form{
+    overflow:auto;
+}
 #comment-form button{
     float: left;
+    padding: 7px 15px;
+    background-color: #2196f3;
+    border: none;
+    border-radius: 5px;
+    color: white; 
+    margin-top: 7px;
+}
+#comment-form button:hover {
+    background-color: rgba(9, 64, 96, 0.8);
 }
 #comment-content{
     width: 100%;
@@ -41,11 +60,15 @@ ul {
 }
 .single-comment img{
     width: 50px;
-    height: auto;
+    height: 50px;
+    border-radius: 50%;
 }
 .single-comment div{
     display: inline-block;
     margin: 10px;
+}
+.single-comment .comment-right{
+    max-width: 83%;
 }
 .single-comment p+p{
     margin-top: -10px;
@@ -54,4 +77,46 @@ ul {
 }
 .single-comment span{
     color: #2196f3;
+}
+@media screen and (max-width: 900px) {
+    .container {
+        margin: 10px auto 0;
+    }
+    .content{
+        flex-wrap: wrap;
+    }
+    .content .left, .content .right{
+        width: 90%;
+    }
+    .content .right img{
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+    }
+    .container h2{
+        font-size: 130%;
+    }
+    .content .date {
+        margin-top: -15px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .container{
+        font-size: 90%;
+    }
+    .container h2{
+        font-size: 110%;
+    }
+    .content .date {
+        margin-top: -12px;
+    }
+    .single-comment img{
+        width: 40px;
+        height: 40px;
+    }
+    .single-comment .comment-right{
+        max-width: 75%;
+        margin: 0;
+    }
 }

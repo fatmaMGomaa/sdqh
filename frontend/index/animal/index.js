@@ -58,7 +58,7 @@ const mapWithMarkers = function initMap() {
                 caseId = this.get("id");
                 saveToLocalStorage("caseId", caseId)
                 saveToLocalStorage("caseType", "animal")
-                window.location.replace(baseURL + `/cases/human/singleCase/singleCase.html`);
+                window.location.replace(baseURL + `/cases/animal/singleCase/singleCase.html`);
             }); 
         }
     }

@@ -12,7 +12,7 @@ const Comment = sequelize.define(
             primaryKey: true
         },
         content: {
-            type: Sequelize.STRING,
+            type: Sequelize.TEXT,
             allowNull: false
         }
     },
