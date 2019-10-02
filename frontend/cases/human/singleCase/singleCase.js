@@ -4,8 +4,7 @@ const caseType = getLocalStorageItem("caseType");
 const user = getLocalStorageItem("user");
 
 let theCase, comments;
-// const baseURL = process.env.baseURL
-// // const baseURL = "file:///home/fgomaa/Desktop/sdqh/frontend";
+const baseURL = "file:///home/fgomaa/Desktop/sdqh/frontend";
 const container = document.querySelector('.container');
 axios
     .get(`http://localhost:8080/singleCase/${caseId}?caseType=${caseType}`, {
