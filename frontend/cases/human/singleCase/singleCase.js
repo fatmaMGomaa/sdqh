@@ -4,7 +4,8 @@ const caseType = getLocalStorageItem("caseType");
 const user = getLocalStorageItem("user");
 
 let theCase, comments;
-const baseURL = "file:///home/fgomaa/Desktop/sdqh/frontend";
+// const baseURL = process.env.baseURL
+// // const baseURL = "file:///home/fgomaa/Desktop/sdqh/frontend";
 const container = document.querySelector('.container');
 axios
     .get(`http://localhost:8080/singleCase/${caseId}?caseType=${caseType}`, {
@@ -61,12 +62,13 @@ axios
                 </div>
                 <div id="other-comments"></div>
             </div>`
-            if(!token){
-                alert("please log in first");
-            }else {
-                const commentForm = document.querySelector('#comment-form');
-                commentForm.addEventListener("submit", (e) => {
-                    e.preventDefault();
+            
+            const commentForm = document.querySelector('#comment-form');
+            commentForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                if (!token) {
+                    alert("please log in first");
+                } else {
                     const comment = document.getElementById('comment-content').value
                     let data = new FormData();
                     data.append("comment", comment);
@@ -88,8 +90,9 @@ axios
                             console.log(error);
                             alert(error.response.data.message)
                         });
-                })
-            }
+                }
+                    
+            })
             
             if (comments.length > 0) {
                 const caseComments = document.querySelector('#other-comments')

@@ -29,7 +29,7 @@ axios
                             <p class="date">تم إضافته: <time>${ cases[i]["createdAt"].split('T')[0]}</time>، ${cases[i]["area"]}</p>
                         </div>
                         <div class="middle">
-                            <p>${ cases[i]["description"].substring(0, 120)}...}</p>
+                            <p>${ cases[i]["description"].substring(0, 120)}...</p>
                         </div>
                         <div class="bottom">
                             <button type="button" id=${ cases[i]["id"]}>المزيد</button>

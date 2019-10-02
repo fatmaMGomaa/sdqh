@@ -3,21 +3,6 @@ const baseURL = "file:///home/fgomaa/Desktop/sdqh/frontend";
 let cases = [];
 var map, infoWindow;
 
-axios
-    .get("http://localhost:8080/allCases?caseType=human", {
-        headers: {
-            Authorization: `bearer ${token}`
-        }
-    })
-    .then(response => {
-        cases = response.data.cases;
-        console.log(cases);
-        mapWithMarkers();
-    })
-    .catch(error => {
-        console.log(error);
-    });
-
 const mapWithMarkers = function initMap() {
     //render the google map
     map = new google.maps.Map(document.getElementById('map'), {
@@ -71,3 +56,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
+
+axios
+    .get("http://localhost:8080/allCases?caseType=human", {
+        headers: {
+            Authorization: `bearer ${token}`
+        }
+    })
+    .then(response => {
+        cases = response.data.cases;
+        console.log(cases);
+        mapWithMarkers();
+    })
+    .catch(error => {
+        console.log(error);
+    });

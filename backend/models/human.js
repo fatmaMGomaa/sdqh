@@ -16,8 +16,8 @@ const Human = sequelize.define(
             allowNull: false
         },
         area: {
-            type: Sequelize.ENUM('الجيزة', 'القاهرة', "أكتوبر"),
-            defaultValue: 'القاهرة',
+            type: Sequelize.ENUM('مصر', 'الامارات', "السعودية"),
+            defaultValue: 'مصر',
             allowNull: false
         },
         address: {
